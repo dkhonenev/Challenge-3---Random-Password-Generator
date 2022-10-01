@@ -48,32 +48,84 @@ generateBtn.addEventListener("click", writePassword);
 //var choiceUC = upperCase[randomUC];
 //var choiceNum = numbers[randomNum];
 //var choiceSpecials = specials[randomSpecials];
+
 //Function declarations with console.log method that generate a random string from a given array
-function getRandomLowercase() {
-  var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  return lowerCase[Math.floor(Math.random() * lowerCase.length)];
+
+//function getRandomLowercase() {
+//  var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+//  return lowerCase[Math.floor(Math.random() * lowerCase.length)];
+//};
+
+//console.log(getRandomLowercase());
+
+//function getRandomUppercase() {
+//  var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+//  return upperCase[Math.floor(Math.random() * upperCase.length)];
+//};
+
+//console.log(getRandomUppercase());
+
+//function getRandomNumbers() {
+//  var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+//  return numbers[Math.floor(Math.random() * numbers.length)];
+//};
+
+//console.log(getRandomNumbers());
+
+//function getRandomSpecials() {
+//  var specials = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "}", "[", "]", "|", "\ ", "/", ":", ";", "'", "<", ">", ",", ".", "?"];
+//  return specials[Math.floor(Math.random() * specials.length)];
+//};
+
+//console.log(getRandomSpecials());
+
+//Next, I would like to create a function which would generate a random password which is indicated by the user's input length with functions I have created above
+generatePassword();
+//This function is able to ask a person for input, receive input, and ask what type of content in  the password the user wants
+function generatePassword() {
+  var user = prompt("Please, enter the number to choose length of the password (8 to 128 characters)");
+  var userInput = Number(user);
+  console.log(userInput);
+
+  if (userInput >= 8, userInput <=128) {
+    alert("Thank you for your input!");
+  };
+
+  if (userInput < 8, userInput > 128) {
+    alert("Please enter the valid number of characters");
+    generate();
+  };
+
+  var lowercaseConfirm = confirm("Lowercase?");
+
+    if (lowercaseConfirm === true) {
+      console.log(getRandomLowercase());
+    };
+
+  var uppercaseConfirm = confirm("Uppercase?");
+    
+    if (uppercaseConfirm === true) {
+      console.log(getRandomUppercase());
+    };
+
+  var specialConfirm = confirm("Special characters?");
+    
+    if (specialConfirm === true) {
+      console.log(getRandomSpecials());
+    };
+  
+  var numbersConfirm = confirm("Numbers?");
+    
+    if (numbersConfirm === true) {
+      console.log(getRandomNumbers());
+    };
+
+  for (i = 0; i<= userInput.length; i++) {
+    getRandomLowercase();
+    getRandomUppercase();
+    getRandomNumbers();
+    getRandomSpecials();
+  }
+
 };
-
-console.log(getRandomLowercase());
-
-function getRandomUppercase() {
-  var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  return upperCase[Math.floor(Math.random() * upperCase.length)];
-};
-
-console.log(getRandomUppercase());
-
-function getRandomNumbers() {
-  var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  return numbers[Math.floor(Math.random() * numbers.length)];
-};
-
-console.log(getRandomNumbers());
-
-function getRandomSpecials() {
-  var specials = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "}", "[", "]", "|", "\ ", "/", ":", ";", "'", "<", ">", ",", ".", "?"];
-  return specials[Math.floor(Math.random() * specials.length)];
-};
-
-console.log(getRandomSpecials());
-
+//I got stuck on implementing random generators to produce the password of desired length, and connecting my function with functions which were given from the beginning. I do not understand how to make the for loop work in the desired manner
